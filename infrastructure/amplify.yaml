@@ -7,12 +7,12 @@ Parameters:
 
   OauthToken:
     Type: String
-    Description: GitHub Repository URL
+    Description: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
     NoEcho: true
 
   Domain:
     Type: String
-    Description: Domain name to host application
+    Description: Domain name to host the application
 
 Resources:
   AmplifyRole:
@@ -37,7 +37,7 @@ Resources:
                 Resource: "*"
 
   AmplifyApp:
-    Type: "AWS::Amplify::App"
+    Type: AWS::Amplify::App
     Properties:
       Name: NextAmplify
       Repository: !Ref Repository
