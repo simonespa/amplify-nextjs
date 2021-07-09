@@ -41,11 +41,11 @@ Resources:
     Properties:
       Name: TodoApp
       Repository: !Ref Repository
-      Description: VueJS Todo example app
+      Description: Next.js vanilla app
       OauthToken: !Ref OauthToken
       Tags:
         - Key: Name
-          Value: Todo
+          Value: Next.js
       IAMServiceRole: !GetAtt AmplifyRole.Arn
 
   AmplifyBranch:
@@ -57,9 +57,9 @@ Resources:
       EnableAutoBuild: true
       Tags:
         - Key: Name
-          Value: todo-master
+          Value: next.js-main
         - Key: Branch
-          Value: master
+          Value: main
 
   AmplifyDomain:
     Type: AWS::Amplify::Domain
