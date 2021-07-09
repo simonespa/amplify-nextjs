@@ -39,7 +39,7 @@ Resources:
   AmplifyApp:
     Type: "AWS::Amplify::App"
     Properties:
-      Name: TodoApp
+      Name: NextAmplify
       Repository: !Ref Repository
       Description: Next.js vanilla app
       OauthToken: !Ref OauthToken
