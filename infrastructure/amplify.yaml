@@ -10,10 +10,6 @@ Parameters:
     Description: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
     NoEcho: true
 
-  Domain:
-    Type: String
-    Description: Domain name to host the application
-
 Resources:
   AmplifyRole:
     Type: AWS::IAM::Role
@@ -39,9 +35,9 @@ Resources:
   AmplifyApp:
     Type: AWS::Amplify::App
     Properties:
-      Name: NextAmplify
+      Name: AmplifyNext
       Repository: !Ref Repository
-      Description: Next.js vanilla app
+      Description: Next.js vanilla app integration with AWS Amplify
       OauthToken: !Ref OauthToken
       Tags:
         - Key: Name
@@ -61,18 +57,6 @@ Resources:
         - Key: Branch
           Value: main
 
-  AmplifyDomain:
-    Type: AWS::Amplify::Domain
-    Properties:
-      DomainName: !Ref Domain
-      AppId: !GetAtt AmplifyApp.AppId
-      SubDomainSettings:
-        - Prefix: main
-          BranchName: !GetAtt AmplifyBranch.BranchName
-
 Outputs:
-  DefaultDomain:
-    Value: !GetAtt AmplifyApp.DefaultDomain
-
   MasterBranchUrl:
     Value: !Join [ ".", [ !GetAtt AmplifyBranch.BranchName, !GetAtt AmplifyDomain.DomainName ]]
