@@ -1,4 +1,4 @@
-# amplify
+# Next.js integration with AWS Amplify
 
 ## Deploy
 
