@@ -1,7 +1,7 @@
 {
   "name": "amplify-nextjs",
   "version": "0.1.0",
-  "description": "A sample integration of Next.js in a AWS Amplify project",
+  "description": "A sample integration of Next.js with AWS Amplify",
   "author": {
     "name": "Simone Spaccarotella",
     "email": "spa.simone@gmail.com",

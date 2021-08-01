@@ -36,8 +36,13 @@ Resources:
     Type: AWS::Amplify::App
     Properties:
       Name: AmplifyNext
+      Description: A sample integration of Next.js with AWS Amplify
+      AutoBranchCreationConfig:
+        EnableAutoBranchCreation: true
+        EnableAutoBuild: true
+        EnablePullRequestPreview: true
+      EnableBranchAutoDeletion: true
       Repository: !Ref Repository
-      Description: Next.js vanilla app integration with AWS Amplify
       OauthToken: !Ref OauthToken
       Tags:
         - Key: Name
