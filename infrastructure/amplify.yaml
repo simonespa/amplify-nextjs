@@ -56,7 +56,3 @@ Resources:
           Value: next.js-main
         - Key: Branch
           Value: main
-
-Outputs:
-  MasterBranchUrl:
-    Value: !Join [ ".", [ !GetAtt AmplifyBranch.BranchName, !GetAtt AmplifyDomain.DomainName ]]
