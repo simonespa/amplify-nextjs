@@ -1,6 +1,26 @@
 {
   "name": "amplify-nextjs",
   "version": "0.1.0",
+  "description": "A sample integration of Next.js in a AWS Amplify project",
+  "author": {
+    "name": "Simone Spaccarotella",
+    "email": "spa.simone@gmail.com",
+    "url": "https://www.linkedin.com/in/simonespaccarotella"
+  },
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonespa/amplify-nextjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/simonespa/amplify-nextjs/issues"
+  },
+  "homepage": "https://github.com/simonespa/amplify-nextjs#readme",
+  "keywords": [
+    "AWS",
+    "Amplify",
+    "Next.js"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
