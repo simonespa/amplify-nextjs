@@ -6,7 +6,7 @@ export async function getStaticProps() {
   return {
     props: {
       description: 'This is the about page.'
-    },
+    }
   }
 }
 
