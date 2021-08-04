@@ -1,37 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Parameters:
-  Repository:
-    Type: String
-    Description: GitHub Repository URL
+Description: The AmplifyNext app
 
-  OauthToken:
+Parameters:
+  GitHubOauthToken:
     Type: String
-    Description: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
+    Description: The GitHub access token
     NoEcho: true
 
 Resources:
-  AmplifyRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: 2012-10-17
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service:
-                - amplify.amazonaws.com
-            Action:
-              - sts:AssumeRole
-      Policies:
-        - PolicyName: Amplify
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              - Effect: Allow
-                Action: "amplify:*"
-                Resource: "*"
-
   AmplifyApp:
     Type: AWS::Amplify::App
     Properties:
@@ -42,12 +19,9 @@ Resources:
         EnableAutoBuild: true
         EnablePullRequestPreview: true
       EnableBranchAutoDeletion: true
-      Repository: !Ref Repository
-      OauthToken: !Ref OauthToken
-      Tags:
-        - Key: Name
-          Value: Next.js
-      IAMServiceRole: !GetAtt AmplifyRole.Arn
+      Repository: https://github.com/simonespa/amplify-nextjs
+      OauthToken: !Ref GitHubOauthToken
+      IAMServiceRole: !ImportValue AmplifyNext-Roles-AmplifyRoleARN
 
   AmplifyBranch:
     Type: AWS::Amplify::Branch
@@ -56,8 +30,3 @@ Resources:
       AppId: !GetAtt AmplifyApp.AppId
       Description: Main branch
       EnableAutoBuild: true
-      Tags:
-        - Key: Name
-          Value: next.js-main
-        - Key: Branch
-          Value: main

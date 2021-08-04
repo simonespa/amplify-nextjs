@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: The role for the AmplifyNext app
+
+Resources:
+  AmplifyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - amplify.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Description: Role for the AmplifyNext app
+      RoleName: !Sub '${AWS::Region}-AmplifyNext'
+      Policies:
+        - PolicyName: AmplifyNext
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - lambda:CreateFunction
+                  - lambda:DeleteFunction
+                  - lambda:GetFunction
+                  - lambda:GetFunctionConfiguration
+                  - lambda:PublishVersion
+                  - lambda:UpdateFunctionCode
+                  - lambda:UpdateFunctionConfiguration
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - s3:CreateBucket
+                  - s3:DeleteBucket
+                  - s3:GetAccelerateConfiguration
+                  - s3:PutAccelerateConfiguration
+                  - s3:PutBucketPolicy
+                Resource: '*'
+              - Effect: Allow
+                Action:
+                  - iam:CreateRole
+                  - iam:CreateServiceLinkedRole
+                  - iam:DeleteRole
+                  - iam:DeleteRolePolicy
+                  - iam:GetRole
+                  - iam:PutRolePolicy
+                Resource: '*'
+              - Effect: Allow
+                Action: cloudfront:*
+                Resource: '*'
+              - Effect: Allow
+                Action: amplify:*
+                Resource: '*'
+              - Effect: Allow
+                Action: ssm:*
+                Resource: '*'
+              - Effect: Allow
+                Action: kms:*
+                Resource: '*'
+
+Outputs:
+  AmplifyRoleARN:
+    Description: The role ARN
+    Value:
+      !GetAtt AmplifyRole.Arn
+    Export:
+      Name:
+        !Sub '${AWS::StackName}-AmplifyRoleARN'
