@@ -2,7 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function About() {
+export async function getStaticProps() {
+  return {
+    props: {
+      description: 'This is the ABOUT page'
+    }
+  }
+}
+
+export default function About({ description }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +25,7 @@ export default function About() {
         </h1>
 
         <p className={styles.description}>
-          This is the about page
+          {description}
         </p>
       </main>
 
