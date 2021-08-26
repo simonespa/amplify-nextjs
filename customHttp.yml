@@ -1,2 +1,5 @@
 customHeaders:
-  X-Custom-Header: 'this is a custom header'
+  - pattern: '/*'
+    headers:
+    - key: 'X-Custom-Header'
+      value: 'custom value'
