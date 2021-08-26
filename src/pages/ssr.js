@@ -16,7 +16,7 @@ export default function SSR({ description }) {
     <>
       <Head>
         <title>Server Side Rendering page</title>
-        <link rel="icon" href="/fav.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
