@@ -2,20 +2,29 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export async function getServerSideProps() {
+  return {
+    props: {
+      description: 'What about this page?'
+    }
+  }
+}
+
+
+export default function SSR() {
   return (
     <>
       <Head>
-        <title>Home Page</title>
+        <title>Server Side Rendering page</title>
         <link rel="icon" href="/fav.ico" />
       </Head>
 
       <main>
-        <h1>Home Page</h1>
+        <h1>Server Side Rendering</h1>
 
-        <Link href="/ssr">
+        <Link href="/">
           <a>
-            <h2>Server Side Rendering page &rarr;</h2>
+            <h2>Home page &rarr;</h2>
           </a>
         </Link>
       </main>
