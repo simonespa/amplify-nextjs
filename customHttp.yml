@@ -1,0 +1,2 @@
+customHeaders:
+  X-Custom-Header: 'this is a custom header'
