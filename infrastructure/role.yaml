@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: The role for the AmplifyNext app
+
+Resources:
+  AmplifyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - amplify.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Description: Role for the AmplifyNext app
+      RoleName: !Sub '${AWS::Region}-AmplifyNext'
+      Policies:
+        - PolicyName: AmplifyNext
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: '*'
+                Resource: '*'
+
+Outputs:
+  AmplifyRoleARN:
+    Description: The role ARN
+    Value:
+      !GetAtt AmplifyRole.Arn
+    Export:
+      Name:
+        !Sub '${AWS::StackName}-AmplifyRoleARN'

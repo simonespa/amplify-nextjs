@@ -3,7 +3,7 @@ This is a Next.js integration with AWS Amplify.
 ## Deploy the app on CloudFormation
 
 ```
-aws cloudformation deploy --template-file ./infrastructure/roles.yaml --stack-name AmplifyNext-Roles --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation deploy --template-file ./infrastructure/role.yaml --stack-name AmplifyNext-Role --capabilities CAPABILITY_NAMED_IAM
 ```
 
 ```

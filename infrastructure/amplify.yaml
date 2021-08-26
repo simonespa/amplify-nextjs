@@ -21,7 +21,7 @@ Resources:
       EnableBranchAutoDeletion: true
       Repository: https://github.com/simonespa/amplify-nextjs
       OauthToken: !Ref GitHubOauthToken
-      IAMServiceRole: !ImportValue AmplifyNext-Roles-AmplifyRoleARN
+      IAMServiceRole: !ImportValue AmplifyNext-Role-AmplifyRoleARN
 
   AmplifyBranch:
     Type: AWS::Amplify::Branch
