@@ -19,9 +19,12 @@ Resources:
         EnableAutoBuild: true
         EnablePullRequestPreview: true
       EnableBranchAutoDeletion: true
+      EnvironmentVariables:
+        - Name: NEXT_TELEMETRY_DISABLED
+          Value: 1
       Repository: https://github.com/simonespa/amplify-nextjs
       OauthToken: !Ref GitHubOauthToken
-      IAMServiceRole: !ImportValue AmplifyNext-Role-AmplifyRoleARN
+      IAMServiceRole: !ImportValue AmplifyNext-Role-RoleARN
 
   AmplifyBranch:
     Type: AWS::Amplify::Branch

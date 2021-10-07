@@ -1,18 +1,13 @@
 # AmplifyNext
 This is a Next.js integration with AWS Amplify.
-## Deploy the app on CloudFormation
+## Deploy the Infrastructure
 
+**Role stack**
 ```
-aws cloudformation deploy --template-file ./infrastructure/role.yaml --stack-name AmplifyNext-Role --capabilities CAPABILITY_NAMED_IAM
-```
-
-```
-aws cloudformation deploy --template-file ./infrastructure/amplify.yaml --stack-name AmplifyNext-App --capabilities CAPABILITY_IAM --parameter-overrides GitHubOauthToken=$GITHUB_ACCESS_TOKEN
+aws cloudformation deploy --template-file ./infrastructure/amplify-role.yaml --stack-name AmplifyNext-Role --capabilities CAPABILITY_NAMED_IAM --tags project=AmplifyNext
 ```
 
-## Issues
-- Missing rollback:
-  - https://github.com/aws-amplify/amplify-cli/issues/1484
-  - https://github.com/aws-amplify/amplify-console/issues/542
-- When the CI/CD fails in one of the steps the logs are not clear
-- It builds at every push, even when it's a DOCS update that doesn't need a deploy
+**App stack**
+```
+aws cloudformation deploy --template-file ./infrastructure/amplify-app.yaml --stack-name AmplifyNext-App --capabilities CAPABILITY_IAM --parameter-overrides GitHubOauthToken=$GITHUB_ACCESS_TOKEN --tags project=AmplifyNext
+```
