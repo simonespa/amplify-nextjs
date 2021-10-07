@@ -2,4 +2,4 @@ customHeaders:
   - pattern: '/*'
     headers:
     - key: 'X-Custom-Header'
-      value: 'custom value'
+      value: 'custom-value'
