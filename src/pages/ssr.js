@@ -9,8 +9,6 @@ export async function getServerSideProps() {
     }
   }
 }
-
-
 export default function SSR({ description }) {
   return (
     <>
@@ -31,7 +29,7 @@ export default function SSR({ description }) {
       </main>
 
       <footer>
-        <Image src="/spider-web.svg" alt="Spider Web" width={72} height={16} />
+        <span>This is a footer section</span>
       </footer>
     </>
   )

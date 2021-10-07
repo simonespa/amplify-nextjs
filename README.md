@@ -15,3 +15,4 @@ aws cloudformation deploy --template-file ./infrastructure/amplify.yaml --stack-
   - https://github.com/aws-amplify/amplify-cli/issues/1484
   - https://github.com/aws-amplify/amplify-console/issues/542
 - When the CI/CD fails in one of the steps the logs are not clear
+- It builds at every push, even when it's a DOCS update that doesn't need a deploy
