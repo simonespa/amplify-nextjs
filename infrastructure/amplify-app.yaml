@@ -38,7 +38,8 @@ Resources:
     Type: AWS::Amplify::Domain
     Properties:
       AppId: !GetAtt AmplifyApp.AppId
-      AutoSubDomainCreationPatterns: '*'
+      AutoSubDomainCreationPatterns:
+        - '*'
       AutoSubDomainIAMRole: !ImportValue AmplifyNext-Role-RoleARN
       DomainName: simonespaccarotella.com
       EnableAutoSubDomain: true
