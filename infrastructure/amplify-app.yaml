@@ -33,3 +33,16 @@ Resources:
       AppId: !GetAtt AmplifyApp.AppId
       Description: Main branch
       EnableAutoBuild: true
+
+  AmplifyDomain:
+    Type: AWS::Amplify::Domain
+    Properties:
+      AppId: !GetAtt AmplifyApp.AppId
+      AutoSubDomainCreationPatterns: '*'
+      AutoSubDomainIAMRole: !ImportValue AmplifyNext-Role-RoleARN
+      DomainName: simonespaccarotella.com
+      EnableAutoSubDomain: true
+      SubDomainSettings:
+        - BranchName: main
+          Prefix: www
+    DependsOn: AmplifyBranch
