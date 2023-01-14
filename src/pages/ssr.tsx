@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export async function getServerSideProps() {
@@ -9,6 +8,7 @@ export async function getServerSideProps() {
     }
   }
 }
+
 export default function SSR({ description }) {
   return (
     <>

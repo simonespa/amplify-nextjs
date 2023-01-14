@@ -9,5 +9,5 @@ aws cloudformation deploy --template-file ./infrastructure/amplify-role.yaml --s
 
 **App stack**
 ```
-aws cloudformation deploy --template-file ./infrastructure/amplify-app.yaml --stack-name AmplifyNext-App --capabilities CAPABILITY_IAM --parameter-overrides GitHubOauthToken=$GITHUB_ACCESS_TOKEN --tags project=AmplifyNext
+aws cloudformation deploy --template-file ./infrastructure/amplify-app.yaml --stack-name AmplifyNext-App --capabilities CAPABILITY_IAM --parameter-overrides GitHubOauthToken=$GITHUB_ACCESS_TOKEN DomainName=$DOMAIN_NAME --tags project=AmplifyNext
 ```

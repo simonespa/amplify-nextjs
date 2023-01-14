@@ -7,6 +7,9 @@ Parameters:
     Type: String
     Description: The GitHub access token
     NoEcho: true
+  DomainName:
+    Type: String
+    Description: The domain name (e.g. example.com)
 
 Resources:
   AmplifyApp:
@@ -41,7 +44,7 @@ Resources:
       AutoSubDomainCreationPatterns:
         - '*'
       AutoSubDomainIAMRole: !ImportValue AmplifyNext-Role-RoleARN
-      DomainName: simonespaccarotella.com
+      DomainName: !Ref DomainName
       EnableAutoSubDomain: true
       SubDomainSettings:
         - BranchName: main
